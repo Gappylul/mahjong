@@ -10,6 +10,7 @@ class Home extends Component
     public int $allPairs = 32;
     public array $cards = [];
     public array $selected = [];
+    public bool $gamewon = false;
 
     public function mount()
     {
@@ -43,7 +44,10 @@ class Home extends Component
                     unset($this->cards[$i]);
                 }
                 $this->cards = array_values($this->cards);
-                $this->allPairs -= 2;
+                $this->allPairs -= 1;
+                if ($this->allPairs === 0) {
+                    $this->gamewon = true;
+                }
             }
             $this->selected = [];
         }

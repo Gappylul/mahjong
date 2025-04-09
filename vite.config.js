@@ -10,4 +10,11 @@ export default defineConfig({
         }),
         tailwindcss(),
     ],
+    server: {
+        host: '0.0.0.0',
+        allowedHosts: ['mahjong.gappy.online', 'localhost', 'vite.gappy.online'],
+        proxy: {
+            '/': 'https://mahjong.gappy.online:7777',
+        }
+    },
 });
